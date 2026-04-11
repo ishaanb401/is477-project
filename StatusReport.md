@@ -1,4 +1,3 @@
-```md
 # Status Report
 
 ## Project Title
@@ -192,4 +191,3 @@ I worked on data processing and analysis tasks. I created the scripts for collec
 Our next steps are to run the full pipeline, generate the processed dataset and figures, expand the data quality assessment, and continue improving documentation. After that, we will begin drafting the final analysis and interpretation of results.
 
 ---
-```

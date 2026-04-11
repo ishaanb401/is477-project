@@ -1,4 +1,3 @@
-```md
 # Dataset Metadata
 
 ## Dataset 1: FRED CPI Data
@@ -32,4 +31,3 @@
 - Daily stock data is resampled to month-end values
 - CPI data is already monthly
 - Monthly percent change is computed for both CPI and stock prices
-```
