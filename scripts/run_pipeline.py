@@ -2,8 +2,6 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from fetch_fred_data import fetch_fred_series
-from fetch_market_data import fetch_sp500_data
 from integrate_data import clean_and_integrate
 
 
@@ -11,19 +9,19 @@ def generate_summary(df: pd.DataFrame, output_dir: str = "outputs") -> None:
     os.makedirs(f"{output_dir}/figures", exist_ok=True)
     os.makedirs(f"{output_dir}/tables", exist_ok=True)
 
-    corr = df[["inflation_rate_pct", "sp500_return_pct"]].corr()
-    corr.to_csv(f"{output_dir}/tables/correlation_matrix.csv")
-    print("Saved correlation matrix.")
-
     summary = df[["inflation_rate_pct", "sp500_return_pct"]].describe()
     summary.to_csv(f"{output_dir}/tables/summary_statistics.csv")
     print("Saved summary statistics.")
+
+    corr = df[["inflation_rate_pct", "sp500_return_pct"]].corr()
+    corr.to_csv(f"{output_dir}/tables/correlation_matrix.csv")
+    print("Saved correlation matrix.")
 
     plt.figure(figsize=(10, 5))
     plt.plot(pd.to_datetime(df["cpi_date"]), df["inflation_rate_pct"])
     plt.title("Monthly Inflation Rate")
     plt.xlabel("Date")
-    plt.ylabel("Percent")
+    plt.ylabel("Inflation Rate (%)")
     plt.tight_layout()
     plt.savefig(f"{output_dir}/figures/inflation_rate.png")
     plt.close()
@@ -32,7 +30,7 @@ def generate_summary(df: pd.DataFrame, output_dir: str = "outputs") -> None:
     plt.plot(pd.to_datetime(df["cpi_date"]), df["sp500_return_pct"])
     plt.title("Monthly S&P 500 Returns")
     plt.xlabel("Date")
-    plt.ylabel("Percent")
+    plt.ylabel("Return (%)")
     plt.tight_layout()
     plt.savefig(f"{output_dir}/figures/sp500_returns.png")
     plt.close()
@@ -50,13 +48,12 @@ def generate_summary(df: pd.DataFrame, output_dir: str = "outputs") -> None:
 
 
 def main() -> None:
-    fetch_fred_series("CPIAUCSL", "data/raw/fred_cpi.csv")
-    fetch_sp500_data(output_path="data/raw/sp500_daily.csv")
     integrated = clean_and_integrate(
-        fred_path="data/raw/fred_cpi.csv",
-        market_path="data/raw/sp500_daily.csv",
+        cpi_path="data/raw/cpi.csv",
+        sp500_path="data/raw/sp500.csv",
         output_path="data/processed/integrated_monthly.csv"
     )
+
     generate_summary(integrated)
 
 
