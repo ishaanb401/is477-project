@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 from integrate_data import clean_and_integrate
+from profile_data import data_quality_assessment
 
 
 def generate_summary(df: pd.DataFrame, output_dir: str = "outputs") -> None:
@@ -55,6 +56,7 @@ def main() -> None:
     )
 
     generate_summary(integrated)
+    data_quality_assessment()
 
 
 if __name__ == "__main__":

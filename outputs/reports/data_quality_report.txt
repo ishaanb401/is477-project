@@ -1,0 +1,101 @@
+DATA QUALITY REPORT
+
+============================================================
+ DATASET: CPI (data/raw/cpi.csv)
+============================================================
+Shape         : 300 rows x 2 columns
+Columns       : ['Date', 'CPI']
+Memory usage  : 22.1 KB
+
+Column dtypes:
+  Date                      object
+  CPI                       float64
+
+--- Missing Values ---
+  No missing values found.
+
+--- Duplicate Rows ---
+  0 duplicate row(s) found.
+
+--- Date Continuity (Date) ---
+  Observed range : 2000-01  →  2024-12
+  Expected range : 2000-01  →  2024-12
+  Expected months: 300
+  Present months : 300
+  No gaps detected in monthly sequence.
+
+--- Descriptive Statistics (numeric columns) ---
+     count        mean        std    min      25%      50%      75%      max  cv_%
+CPI  300.0  229.922587  38.171187  168.8  201.075  229.708  252.014  315.664  16.6
+
+============================================================
+ DATASET: S&P 500 (data/raw/sp500.csv)
+============================================================
+Shape         : 300 rows x 6 columns
+Columns       : ['Date', 'Open', 'High', 'Low', 'Close', 'Volume']
+Memory usage  : 31.5 KB
+
+Column dtypes:
+  Date                      object
+  Open                      float64
+  High                      float64
+  Low                       float64
+  Close                     float64
+  Volume                    int64
+
+--- Missing Values ---
+  No missing values found.
+
+--- Duplicate Rows ---
+  0 duplicate row(s) found.
+
+--- Date Continuity (Date) ---
+  Observed range : 2000-01  →  2024-12
+  Expected range : 2000-01  →  2024-12
+  Expected months: 300
+  Present months : 300
+  No gaps detected in monthly sequence.
+
+--- Descriptive Statistics (numeric columns) ---
+        count          mean           std           min           25%           50%           75%           max   cv_%
+Open    300.0  2.103388e+03  1.234295e+03  7.295700e+02  1.206158e+03  1.481000e+03  2.717860e+03  6.040110e+03  58.68
+High    300.0  2.174041e+03  1.277677e+03  8.329800e+02  1.238170e+03  1.530515e+03  2.838977e+03  6.099970e+03  58.77
+Low     300.0  2.029914e+03  1.197806e+03  6.667900e+02  1.165093e+03  1.425810e+03  2.611913e+03  5.832300e+03  59.01
+Close   300.0  2.116647e+03  1.251152e+03  7.350900e+02  1.206158e+03  1.490240e+03  2.726793e+03  6.032380e+03  59.11
+Volume  300.0  7.022747e+10  2.887286e+10  1.908910e+10  4.864578e+10  7.572941e+10  8.601466e+10  1.621854e+11  41.11
+
+============================================================
+ DATASET: Integrated Monthly (data/processed/integrated_monthly.csv)
+============================================================
+Shape         : 299 rows x 10 columns
+Columns       : ['month', 'cpi_date', 'CPI', 'inflation_rate_pct', 'Open', 'High', 'Low', 'Close', 'Volume', 'sp500_return_pct']
+Memory usage  : 57.1 KB
+
+Column dtypes:
+  month                     object
+  cpi_date                  object
+  CPI                       float64
+  inflation_rate_pct        float64
+  Open                      float64
+  High                      float64
+  Low                       float64
+  Close                     float64
+  Volume                    int64
+  sp500_return_pct          float64
+
+--- Missing Values ---
+  No missing values found.
+
+--- Duplicate Rows ---
+  0 duplicate row(s) found.
+
+--- Descriptive Statistics (numeric columns) ---
+                    count          mean           std           min           25%           50%           75%           max    cv_%
+CPI                 299.0  2.301270e+02  3.807033e+01  1.698000e+02  2.015000e+02  2.298150e+02  2.520220e+02  3.156640e+02   16.54
+inflation_rate_pct  299.0  2.102421e-01  3.836680e-01 -1.915290e+00 -6.823987e-03  2.012072e-01  4.665718e-01  1.373608e+00  182.49
+Open                299.0  2.105509e+03  1.235817e+03  7.295700e+02  1.205305e+03  1.482370e+03  2.718140e+03  6.040110e+03   58.69
+High                299.0  2.176369e+03  1.279182e+03  8.329800e+02  1.236560e+03  1.530940e+03  2.841995e+03  6.099970e+03   58.78
+Low                 299.0  2.032188e+03  1.199165e+03  6.667900e+02  1.164645e+03  1.426190e+03  2.618305e+03  5.832300e+03   59.01
+Close               299.0  2.119063e+03  1.252548e+03  7.350900e+02  1.205305e+03  1.498110e+03  2.735215e+03  6.032380e+03   59.11
+Volume              299.0  7.039046e+10  2.878269e+10  1.908910e+10  4.910654e+10  7.584851e+10  8.605068e+10  1.621854e+11   40.89
+sp500_return_pct    299.0  5.821546e-01  4.411976e+00 -1.694245e+01 -1.795397e+00  1.109581e+00  3.305471e+00  1.268440e+01  757.87
