@@ -1,0 +1,131 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Inflation and Stock Market Performance in the United States",
+  "alternateName": "Inflation and S&P 500 Monthly Returns Dataset",
+  "description": "This dataset supports a project analyzing the relationship between U.S. inflation and stock market performance. It integrates monthly Consumer Price Index data from FRED with monthly S&P 500 market data acquired through the yfinance Python library. The final integrated dataset includes CPI values, monthly inflation rates, S&P 500 monthly open, high, low, close, volume, and monthly return values from 2000 through 2024.",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Ishaan Bhargava"
+    },
+    {
+      "@type": "Person",
+      "name": "Aamir Abjani"
+    }
+  ],
+  "keywords": [
+    "inflation",
+    "consumer price index",
+    "CPI",
+    "stock market",
+    "S&P 500",
+    "finance",
+    "macroeconomics",
+    "time series",
+    "data integration"
+  ],
+  "temporalCoverage": "2000-01-01/2024-12-31",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "United States"
+  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "CPI",
+      "description": "Consumer Price Index value from FRED series CPIAUCNS."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "inflation_rate_pct",
+      "description": "Monthly percent change in CPI."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Open",
+      "description": "First S&P 500 opening value during the month."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "High",
+      "description": "Highest S&P 500 value during the month."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Low",
+      "description": "Lowest S&P 500 value during the month."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Close",
+      "description": "Last S&P 500 closing value during the month."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Volume",
+      "description": "Total S&P 500 trading volume during the month."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "sp500_return_pct",
+      "description": "Monthly percent change in S&P 500 closing price."
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "name": "Raw CPI Data",
+      "encodingFormat": "text/csv",
+      "contentUrl": "data/raw/cpi.csv"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Raw S&P 500 Data",
+      "encodingFormat": "text/csv",
+      "contentUrl": "data/raw/sp500.csv"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Integrated Monthly Dataset",
+      "encodingFormat": "text/csv",
+      "contentUrl": "data/processed/integrated_monthly.csv"
+    }
+  ],
+  "measurementTechnique": [
+    "FRED API",
+    "yfinance Python library",
+    "Python pandas data integration",
+    "Monthly resampling",
+    "Percent change calculation"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Project GitHub Repository",
+    "url": "https://github.com/ishaanb401/is477-project"
+  },
+  "isBasedOn": [
+    {
+      "@type": "Dataset",
+      "name": "FRED Consumer Price Index Data",
+      "identifier": "CPIAUCNS",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCNS",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Federal Reserve Economic Data"
+      }
+    },
+    {
+      "@type": "Dataset",
+      "name": "S&P 500 Historical Market Data",
+      "identifier": "^GSPC",
+      "url": "https://finance.yahoo.com/quote/%5EGSPC/history/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Yahoo Finance"
+      }
+    }
+  ],
+  "license": "Source data are subject to the terms of use of FRED, Yahoo Finance, and yfinance. Project code may be licensed separately.",
+  "creatorComments": "This machine-readable metadata file describes the integrated project dataset and supporting raw datasets for reproducibility and discovery."
+}
