@@ -184,3 +184,16 @@ Another issue was interpreting the results carefully. It would be misleading to 
 Finally, we needed to create several different types of documentation and artifacts, including metadata, a data dictionary, checksums, scripts, visualizations, and output tables. Organizing these files clearly was important so that reviewers could understand the workflow. We addressed this by separating raw data, processed data, metadata, scripts, outputs, and documentation into different folders.
 
 ---
+
+## Reproducing
+
+To reproduce this project, clone the repository and install the required libraries using the provided requirements.txt file. A FRED API key is also required to fetch CPI data. A free key can be obtained at https://fred.stlouisfed.org/docs/api/api_key.html. Once obtained, create a .env file in the root of the project and add your key as FRED_API_KEY. From there you can run fetch_data.py first to download the raw CPI and S&P 500 data. Next, run run_pipeline.py to clean, integrate, and analyze the data. All outputs will be saved to outputs and the integrated dataset will be saved to data/processed/integrated_monthly.csv.
+
+---
+## References
+
+U.S. Bureau of Labor Statistics. Consumer Price Index for All Urban Consumers: All Items in U.S. City Average (CPIAUCNS). Federal Reserve Bank of St. Louis. https://fred.stlouisfed.org/series/CPIAUCNS
+
+Yahoo Finance. S&P 500 (^GSPC) Historical Data. https://finance.yahoo.com/quote/%5EGSPC/history/
+
+---
