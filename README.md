@@ -187,9 +187,39 @@ Finally, we needed to create several different types of documentation and artifa
 
 ## Reproducing
 
-To reproduce this project, clone the repository and install the required libraries using the provided requirements.txt file. A FRED API key is also required to fetch CPI data. A free key can be obtained at https://fred.stlouisfed.org/docs/api/api_key.html. Once obtained, create a .env file in the root of the project and add your key as FRED_API_KEY. From there you can run fetch_data.py first to download the raw CPI and S&P 500 data. Next, run run_pipeline.py to clean, integrate, and analyze the data. All outputs will be saved to outputs and the integrated dataset will be saved to data/processed/integrated_monthly.csv.
+To reproduce this project, follow these steps:
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/ishaanb401/is477-project.git
+cd is477-project
+```
+
+2. Install required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. A FRED API key is also required to fetch CPI data. A free key can be obtained at https://fred.stlouisfed.org/docs/api/api_key.html. Once obtained, create a .env file in the root of the project and add your key as FRED_API_KEY.
+
+4. Run the data acquisition script:
+
+```bash
+python scripts/fetch_data.py
+```
+
+5. Run the full analysis pipeline:
+
+```bash
+python scripts/run_pipeline.py
+```
+
+All outputs will be saved to outputs and the integrated dataset will be saved to data/processed/integrated_monthly.csv.
 
 ---
+
 ## References
 
 U.S. Bureau of Labor Statistics. Consumer Price Index for All Urban Consumers: All Items in U.S. City Average (CPIAUCNS). Federal Reserve Bank of St. Louis. https://fred.stlouisfed.org/series/CPIAUCNS
